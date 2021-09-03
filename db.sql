@@ -26,3 +26,5 @@
 -- INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);  //"" dosen't work but '' works for VARCHAR so called string.
 
 -- to see all the data available in the database -> SELECT * FROM table_name;
+
+-- To see only selected columns -> SELECT column1, column2 FROM table_name;
