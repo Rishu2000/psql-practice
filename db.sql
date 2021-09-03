@@ -20,3 +20,5 @@
 -- To drop a column from a Table -> ALTER TABLE table_name DROP column_name;
 
 -- To Drop a table from the database DROP TABLE table_name;
+
+-- To Drop a database -> DROP DATABASE batabase_name;
