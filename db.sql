@@ -22,3 +22,5 @@
 -- To Drop a table from the database DROP TABLE table_name;
 
 -- To Drop a database -> DROP DATABASE batabase_name;
+
+-- INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
