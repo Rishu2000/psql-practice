@@ -18,3 +18,5 @@
 -- To add a column to a table -> ALTER TABLE table_name ADD COLUMN column_name data_type(VARCHAR(40));
 
 -- To drop a column from a Table -> ALTER TABLE table_name DROP column_name;
+
+-- To Drop a table from the database DROP TABLE table_name;
