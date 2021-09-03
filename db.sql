@@ -6,7 +6,7 @@
 -- 5. list all tables -> \d
 
 -- Create Table in a database ->
--- CREATE tABLE products (
+-- CREATE TABLE products (
 --     id INT,
 --     name VARCHAR(50),
 --     price INT,
@@ -14,3 +14,5 @@
 -- );
 
 -- To see the data inside a table -> \d table_name
+
+-- To add a column to a table -> ALTER TABLE table_name ADD COLUMN name VARCHAR(40);
