@@ -29,9 +29,16 @@
 
 -- To see only selected columns -> SELECT column1, column2 FROM table_name;
 
-CREATE TABLE restaurants (
-    id BIGSERIAL NOT NULL,          -- Auto Increases the value using "BIGSERIAL"
-    name VARCHAR(50) NOT NULL,      -- Used "NOT NULL" so that the value inside a column should not be null.
-    location VARCHAR(50) NOT NULL,
-    price_range INT NOT NULL check (price_range >= 1 and price_range <= 5)
-);
+-- CREATE TABLE restaurants (
+--     id BIGSERIAL NOT NULL,          -- Auto Increases the value using "BIGSERIAL"
+--     name VARCHAR(50) NOT NULL,      -- Used "NOT NULL" so that the value inside a column should not be null.
+--     location VARCHAR(50) NOT NULL,
+--     price_range INT NOT NULL check (price_range >= 1 and price_range <= 5)
+-- );
+
+-- CREATE TABLE restaurants (
+--     id BIGINT NOT NULL PRIMARY KEY,          created a table with primary key.
+--     name VARCHAR(50) NOT NULL,
+--     location VARCHAR(50) NOT NULL,
+--     price_range INT NOT NULL check (price_range >= 1 and price_range <=5)
+-- );
