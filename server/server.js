@@ -12,6 +12,14 @@ app.get("/api/v1/restaurants", (req,res) => {
     })
 });
 
+app.get("/api/v1/restaurants/:id",(req,res) => {
+    res.json({
+        status:"success",
+        data:"wait working on it.",
+        id:req.params.id
+    })
+})
+
 app.listen(port, () => {
     console.log('server is listen to the port = ' + port);
 });
