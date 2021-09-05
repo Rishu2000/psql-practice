@@ -3,6 +3,8 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 4001;
 
+app.use(express.json());
+
 app.get("/api/v1/restaurants", (req,res) => {
     res.json({
         status:"success",
@@ -18,6 +20,20 @@ app.get("/api/v1/restaurants/:id",(req,res) => {
         data:"wait working on it.",
         id:req.params.id
     })
+})
+
+app.post("/api/v1/restaurants",(req,res) => {
+    res.json({
+        status:"success",
+        data:req.body
+    })
+})
+
+app.put("/api/v1/restaurants/:id",(req,res) => {
+    res.json({
+        id: req.params.id,
+        body: req.body
+    });
 })
 
 app.listen(port, () => {
