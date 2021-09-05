@@ -36,6 +36,12 @@ app.put("/api/v1/restaurants/:id",(req,res) => {
     });
 })
 
+app.delete("/api/v1/restaurants/:id",(req,res) => {
+    res.json({
+        status:"success"
+    })
+})
+
 app.listen(port, () => {
     console.log('server is listen to the port = ' + port);
 });
