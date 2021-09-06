@@ -42,3 +42,5 @@
 --     location VARCHAR(50) NOT NULL,
 --     price_range INT NOT NULL check (price_range >= 1 and price_range <=5)
 -- );
+
+-- UPDATE table_name SET column1 = value1, column2 = value2, column3 = value3 WHERE column_name = value_name;
