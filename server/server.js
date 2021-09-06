@@ -20,7 +20,7 @@ app.get("/api/v1/restaurants", async (req,res) => {
 });
 
 app.get("/api/v1/restaurants/:id", async (req,res) => {
-    const results = await db.query('SELECT $2 FROM restaurants WHERE id = $1',[req.params.id, 'name']);
+    const results = await db.query('SELECT * FROM restaurants WHERE id = $1',[req.params.id]);
     res.json({
         status:"success",
         data:results.rows[0],
@@ -28,9 +28,12 @@ app.get("/api/v1/restaurants/:id", async (req,res) => {
     })
 })
 
-app.post("/api/v1/restaurants",(req,res) => {
+app.post("/api/v1/restaurants", async (req,res) => {
+    const {name, location, price_range} = req.body;
+    const results = await db.query("INSERT INTO restaurants (name, location, price_range) VALUES ($1,$2,$3);",[name, location, price_range]);
     res.json({
         status:"success",
+        result:results,
         data:req.body
     })
 })
