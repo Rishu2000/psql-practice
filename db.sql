@@ -44,3 +44,5 @@
 -- );
 
 -- UPDATE table_name SET column1 = value1, column2 = value2, column3 = value3 WHERE column_name = value_name;
+
+-- DELETE FROM table_name WHERE column_name = value_name;
