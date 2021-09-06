@@ -19,10 +19,11 @@ app.get("/api/v1/restaurants", async (req,res) => {
     })
 });
 
-app.get("/api/v1/restaurants/:id",(req,res) => {
+app.get("/api/v1/restaurants/:id", async (req,res) => {
+    const results = await db.query(`SELECT * FROM restaurants WHERE id = '${req.params.id}'`);
     res.json({
         status:"success",
-        data:"wait working on it.",
+        data:results.rows[0],
         id:req.params.id
     })
 })
