@@ -1,14 +1,17 @@
 const express = require('express');
 require('dotenv').config();
 const app = express();
+const db = require('./db/index');
 const port = process.env.PORT || 4001;
 
 app.use(express.json());
 
-app.get("/api/v1/restaurants", (req,res) => {
+app.get("/api/v1/restaurants", async (req,res) => {
+    const results = await db.query('SELECT * FROM restaurants;');
     res.json({
         status:"success",
         data:{
+            databaseResult: results.rows,
             restaurants:["Dimino's", "Pizza hut"]
         }
     })
