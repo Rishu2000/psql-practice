@@ -30,10 +30,10 @@ app.get("/api/v1/restaurants/:id", async (req,res) => {
 
 app.post("/api/v1/restaurants", async (req,res) => {
     const {name, location, price_range} = req.body;
-    const results = await db.query("INSERT INTO restaurants (name, location, price_range) VALUES ($1,$2,$3);",[name, location, price_range]);
+    const results = await db.query("INSERT INTO restaurants (name, location, price_range) VALUES ($1,$2,$3) returning *;",[name, location, price_range]);
     res.json({
         status:"success",
-        data:req.body
+        data:results.rows[0]
     })
 })
 
