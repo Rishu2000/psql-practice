@@ -37,10 +37,12 @@ app.post("/api/v1/restaurants", async (req,res) => {
     })
 })
 
-app.put("/api/v1/restaurants/:id",(req,res) => {
+app.put("/api/v1/restaurants/:id", async (req,res) => {
+    const {name, location, price_range} = req.body;
+    const results = await db.query("UPDATE restaurants SET name = $1, location = $2, price_range = $3 WHERE id = $4 returning *;",[name, location, price_range, req.params.id]);
     res.json({
-        id: req.params.id,
-        body: req.body
+        status:"success",
+        data:results.rows[0]
     });
 })
 
