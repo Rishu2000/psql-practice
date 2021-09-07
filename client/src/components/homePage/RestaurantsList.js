@@ -33,18 +33,20 @@ useEffect(() => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="text-center">
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                        <div className="btn btn-info">Update</div>
-                    </td>
-                    <td>
-                        <div className="btn btn-danger">Delete</div>
-                    </td>
-                    </tr>
+                    {restaurants && restaurants.map((value, key) => (
+                        <tr className="text-center" key={key}>
+                        <th scope="row">{value.name}</th>
+                        <td>{value.location}</td>
+                        <td>{value.price_range}</td>
+                        <td>@mdo</td>
+                        <td>
+                            <div className="btn btn-info">Update</div>
+                        </td>
+                        <td>
+                            <div className="btn btn-danger">Delete</div>
+                        </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
