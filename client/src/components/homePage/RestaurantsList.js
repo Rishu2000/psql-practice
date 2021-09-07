@@ -22,7 +22,9 @@ const handleDelete = async (id) => {
     console.log("Delete "+id);
     try{
         const response = await axios.delete(`/${id}`);
-        console.log(response.data);
+        setRestaurants(restaurants.filter((resturant) => {
+            return resturant.id !== id;
+        }))
     }catch(e){
         console.log(e);
     }
