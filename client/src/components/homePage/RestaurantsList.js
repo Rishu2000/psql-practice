@@ -10,7 +10,6 @@ useEffect(() => {
     const getRestaurnats = async () => {
         try{
             const response = await axios.get('/');
-            console.log(response.data.data.databaseResult);
             setRestaurants(response.data.data.databaseResult);
         }catch(e){
             console.log(e);
