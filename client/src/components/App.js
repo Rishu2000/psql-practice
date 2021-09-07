@@ -7,13 +7,15 @@ import RestDetails from "./router/RestDetails"
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/restaurants/:id/update" component={Update}/>
-        <Route exact path="/restaurants/:id" component={RestDetails}/>
-      </Switch>
-    </Router>
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/restaurants/:id/update" component={Update}/>
+          <Route exact path="/restaurants/:id" component={RestDetails}/>
+        </Switch>
+      </Router>
+    </div>
   )
 }
 
