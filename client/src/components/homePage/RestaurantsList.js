@@ -1,6 +1,20 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import axios from "../apis/RestaurantFinder"
 
 const RestaurantsList = () => {
+
+useEffect(() => {
+    const getRestaurnats = async () => {
+        try{
+            const response = await axios.get('/');
+            console.log(response.data.data.databaseResult);
+        }catch(e){
+            console.log(e);
+        }
+    }
+    getRestaurnats();
+},[])
+
     return (
         <div className="list-group">
             <table className="table table-hover table-dark">
