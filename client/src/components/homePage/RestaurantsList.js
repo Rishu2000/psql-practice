@@ -18,6 +18,16 @@ useEffect(() => {
     getRestaurnats();
 },[])
 
+const handleDelete = async (id) => {
+    console.log("Delete "+id);
+    try{
+        const response = await axios.delete(`/${id}`);
+        console.log(response.data);
+    }catch(e){
+        console.log(e);
+    }
+}
+
     return (
         <div className="list-group">
             <table className="table table-hover table-dark">
@@ -32,8 +42,8 @@ useEffect(() => {
                     </tr>
                 </thead>
                 <tbody>
-                    {restaurants && restaurants.map((value, key) => (
-                        <tr className="text-center" key={key}>
+                    {restaurants && restaurants.map((value) => (
+                        <tr className="text-center" key={value.id}>
                         <th scope="row">{value.name}</th>
                         <td>{value.location}</td>
                         <td>{"$".repeat(value.price_range)}</td>
@@ -42,7 +52,7 @@ useEffect(() => {
                             <div className="btn btn-info">Update</div>
                         </td>
                         <td>
-                            <div className="btn btn-danger">Delete</div>
+                            <div className="btn btn-danger" onClick={() => handleDelete(value.id)}>Delete</div>
                         </td>
                         </tr>
                     ))}
