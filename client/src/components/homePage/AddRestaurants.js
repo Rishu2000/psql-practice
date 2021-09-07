@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import axios from "../apis/RestaurantFinder";
+import { RestaurantsContext } from '../context/RestaurantsContext';
 
 const AddRestaurants = () => {
+
+const {addRestaurant} = useContext(RestaurantsContext);
 
 const [name, setName] = useState();
 const [location, setLocation] = useState();
@@ -9,8 +12,12 @@ const [priceRange, setPriceRange] = useState("Price Range");
 
 const addRestaurants = async (e) => {
     e.preventDefault();
-    const response = await axios.post('/', {name, location, price_range:priceRange});
-    console.log(response.data);
+    try{
+        const response = await axios.post('/', {name, location, price_range:priceRange});
+        addRestaurant(response.data.data);
+    }catch(e){
+        console.log(e);
+    }
 }
 
     return (
