@@ -7,7 +7,7 @@ import RestDetails from "./router/RestDetails"
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="container">
       <Router>
         <Switch>
           <Route exact path="/" component={Home}/>
