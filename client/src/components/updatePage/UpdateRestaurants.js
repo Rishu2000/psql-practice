@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "../apis/RestaurantFinder"
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 const UpdateRestaurants = (props) => {
 
@@ -9,21 +9,38 @@ const UpdateRestaurants = (props) => {
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
     const [priceRange, setPriceRange] = useState("");
+    
+    let history = useHistory();
 
     useEffect(() => {
         const getData = async () => {
-            const response = await axios.get(`${id}`);
-            const {location, name, price_range} = response.data.data;
-            setName(name);
-            setPriceRange(price_range);
-            setLocation(location);
+            try{
+                const response = await axios.get(`${id}`);
+                const {location, name, price_range} = response.data.data;
+                setName(name);
+                setPriceRange(price_range);
+                setLocation(location);
+            }catch(err){
+                console.dir(err);
+            }
         }
         getData();
     },[])
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.put(`${id}`,{name,location,price_range:priceRange});
+            console.log(response.data);
+        }catch (err) {
+            console.dir(err);
+        }
+        history.push('/');
+    }
+
     return (
         <div>
-            <form action="" className="action">
+            <form action="" className="action" onSubmit={handleSubmit}>
                 <div className="form-group my-3">
                     <label htmlFor="name">Name</label>
                     <input id="name" className="form-control" value={name} onChange={(e) => setName(e.target.value)}type="text"/>
